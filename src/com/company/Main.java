@@ -9,6 +9,10 @@ class Movie {
     public String plot() {
         return "No plot here!";
     }
+
+    public String getName() {
+        return name;
+    }
 }
 
 class Jaws extends Movie {
@@ -40,7 +44,7 @@ class MazeRunner extends Movie {
 
     @Override
     public String plot() {
-        return "Kids try and excape a maze.";
+        return "Kids try and escape a maze.";
     }
 }
 
@@ -67,7 +71,12 @@ class Forgetable extends Movie {
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        for(int i = 1; i < 11; i++) {
+            Movie movie = randomMovie();
+            System.out.println("Movie #" + i + ": " + movie.getName()
+                                + "\n" + "Plot: " + movie.plot() + "\n");
+        }
     }
     public static Movie randomMovie() {
         //return a random movie
@@ -86,6 +95,8 @@ public class Main {
                 return new StarWars();
             case 5:
                 return new Forgetable();
+            default:
+                return null;
         }
     }
 }
